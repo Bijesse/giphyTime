@@ -4,8 +4,10 @@ $("#submit").click(function(){
    var x = $("#query").val();
    var request = "https://api.giphy.com/v1/gifs/search?q="+x+"&api_key=dc6zaTOxFJmzC";  
    $.getJSON(request, function(response){
-       var pic = response.data[0].images.fixed_width.url;
+       for(var i = 0; i<5; i++){
+       var pic = response.data[i].images.fixed_width.url;
        $('#results').append("<li>" + "<img src=" + pic + ">" + "</li>");
+       }
    });
    
 $("#reset").click(function(){
